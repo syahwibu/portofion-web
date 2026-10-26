@@ -1,1876 +1,467 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07070a">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>PT Sigma Cipta Caraka | Website, UI/UX &amp; Jaringan</title>
 
-    <title>
-        SYAHDAN PRATAMA | SISTEM INFORMASI JARINGAN APLIKASI
-    </title>
+    <meta name="description" content="PT Sigma Cipta Caraka menyediakan jasa pembuatan website, desain UI/UX, dan solusi jaringan untuk bisnis Anda.">
+    <meta property="og:title" content="PT Sigma Cipta Caraka | Solusi Digital untuk Bisnis">
+    <meta property="og:description" content="Jasa pembuatan website, desain UI/UX, dan solusi jaringan.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/sija.jpg">
 
-    <!-- SEO -->
-    <meta
-        name="description"
-        content="Portfolio Syahdan Pratama - Web Development, UI/UX, dan Digital Design."
-    >
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2307070a'/%3E%3Ctext x='50' y='66' font-size='48' font-family='monospace' font-weight='700' text-anchor='middle' fill='%23ff167f'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
 
-    <meta
-        name="author"
-        content="Syahdan Pratama"
-    >
-
-    <!-- Open Graph -->
-    <meta
-        property="og:title"
-        content="Syahdan Pratama | Portfolio"
-    >
-
-    <meta
-        property="og:description"
-        content="Portfolio Syahdan Pratama - Web Development, UI/UX, dan Digital Design."
-    >
-
-    <meta
-        property="og:type"
-        content="website"
-    >
-
-    <meta
-        property="og:image"
-        content="assert/sija.jpg"
-    >
-
-    <!-- Google Fonts -->
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <!-- Bootstrap 5 -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
-
-    <!-- Bootstrap Icons -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
-
-    <!-- Custom CSS -->
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
+    <!-- Terapkan tema tersimpan sebelum halaman tampil (mencegah kedip) -->
+    <script>
+        try {
+            var t = localStorage.getItem("theme");
+            if (t ? t === "light" : matchMedia("(prefers-color-scheme: light)").matches)
+                document.body.classList.add("light-mode");
+        } catch (e) {}
+    </script>
 
+    <a href="#main" class="skip-link">Lewati ke konten utama</a>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
-
-    <nav
-        id="mainNavbar"
-        class="navbar navbar-expand-lg fixed-top"
-    >
-
-        <div class="container">
-
-            <a
-                class="navbar-brand"
-                href="#home"
-            >
-
-                <span class="brand-symbol">
-                    &lt;/&gt;
-                </span>
-
-            </a>
-
-
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-
-                <i class="bi bi-list"></i>
-
-            </button>
-
-
-            <div
-                class="collapse navbar-collapse"
-                id="navbarNav"
-            >
-
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link active"
-                            href="#home"
-                        >
-                            Home
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            href="#about"
-                        >
-                            About
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            href="#skills"
-                        >
-                            Skills
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            href="#projects"
-                        >
-                            Projects
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            href="#experience"
-                        >
-                            Experience
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            href="#contact"
-                        >
-                            Contact
-                        </a>
-                    </li>
-
-                    <li class="nav-item ms-lg-3">
-
-                        <button
-                            id="themeToggle"
-                            class="theme-toggle"
-                            aria-label="Toggle light mode"
-                            title="Toggle theme"
-                        >
-
-                            <i class="bi bi-sun"></i>
-
-                        </button>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
+    <!-- NAVIGASI SAMPING (nama bagian) -->
+    <nav class="side-nav" aria-label="Navigasi bagian halaman">
+        <a href="#home" aria-label="Beranda"><span>Beranda</span><i></i></a>
+        <a href="#layanan" aria-label="Layanan"><span>Layanan</span><i></i></a>
+        <a href="#tentang" aria-label="Tentang"><span>Tentang</span><i></i></a>
+        <a href="#proyek" aria-label="Proyek"><span>Proyek</span><i></i></a>
+        <a href="#pendiri" aria-label="Pendiri"><span>Pendiri</span><i></i></a>
+        <a href="#kontak" aria-label="Kontak"><span>Kontak</span><i></i></a>
     </nav>
 
-
-
-    <main>
-
-
-        <!-- =========================
-             HERO
-        ========================== -->
-
-        <section
-            id="home"
-            class="hero-section section"
-        >
-
-            <div class="hero-grid"></div>
-
-
-            <div class="container">
-
-                <div class="row align-items-center min-vh-100">
-
-
-                    <!-- HERO TEXT -->
-
-                    <div class="col-lg-7">
-
-                        <div class="hero-content reveal">
-
-
-                            <span class="status-badge">
-
-                                <span class="status-dot"></span>
-
-                                Available for opportunities
-
-                            </span>
-
-
-                            <p class="hero-small-title">
-                                HELLO, I'M
-                            </p>
-
-
-                            <h1>
-                                Syahdan Pratama
-                            </h1>
-
-
-                            <h2>
-                                Programmer Website
-                            </h2>
-
-
-                            <p class="hero-description">
-
-                                Saya memiliki ketertarikan pada
-                                web development, UI/UX design,
-                                dan teknologi digital.
-
-                                Saya senang membuat project yang
-                                memiliki tampilan menarik,
-                                modern, responsif, sekaligus
-                                mudah digunakan.
-
-                            </p>
-
-
-                            <div class="hero-buttons">
-
-
-                                <a
-                                    href="#projects"
-                                    class="btn btn-primary-custom"
-                                >
-
-                                    View My Projects
-
-                                    <i class="bi bi-arrow-up-right"></i>
-
-                                </a>
-
-
-                                <a
-                                    href="assets/CV-Syahdan-Pratama.pdf"
-                                    class="btn btn-outline-custom"
-                                    download
-                                >
-
-                                    Download CV
-
-                                    <i class="bi bi-download"></i>
-
-                                </a>
-
-
-                            </div>
-
-
-                            <div class="hero-socials">
-
-
-                                <a
-                                    href="#"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="GitHub"
-                                >
-
-                                    <i class="bi bi-github"></i>
-
-                                </a>
-
-
-                                <a
-                                    href="#"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="LinkedIn"
-                                >
-
-                                    <i class="bi bi-linkedin"></i>
-
-                                </a>
-
-
-                                <a
-                                    href="#"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Instagram"
-                                >
-
-                                    <i class="bi bi-instagram"></i>
-
-                                </a>
-
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- HERO PROFILE -->
-
-                    <div class="col-lg-5">
-
-                        <div class="hero-image-wrapper reveal">
-
-                            <div class="hero-image-glow"></div>
-
-
-                            <div class="profile-frame">
-
-
-                                <div class="profile-corner corner-top"></div>
-
-                                <div class="profile-corner corner-bottom"></div>
-
-
-                                <!-- PROFILE IMAGE
-                                     FILE LOKAL -->
-
-                                <img
-                                    src="assets/images/profile.jpg"
-                                    alt="Foto profil Syahdan Pratama"
-                                    class="profile-image"
-                                >
-
-
-                                <div class="profile-label">
-
-                                    <span>
-                                        PORTFOLIO
-                                    </span>
-
-                                    <strong>
-                                        2026
-                                    </strong>
-
-                                </div>
-
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-            <a
-                href="#about"
-                class="scroll-indicator"
-                aria-label="Scroll to about section"
-            >
-
-                <span>
-                    SCROLL
-                </span>
-
-                <i class="bi bi-arrow-down"></i>
-
+    <!-- NAVBAR -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home" aria-label="Beranda">
+                <span class="brand-symbol">&lt;/&gt;</span>PT Sigma Cipta Caraka
             </a>
 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Buka menu navigasi">
+                <i class="bi bi-list"></i>
+            </button>
 
-        </section>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyek">Proyek</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pendiri">Pendiri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ganti tema terang atau gelap" title="Ganti tema">
+                            <i class="bi bi-sun"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
+                        <a href="#kontak" class="btn btn-primary-custom btn-nav">Hubungi Kami</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <main id="main">
 
-
-        <!-- =========================
-             ABOUT
-        ========================== -->
-
-        <section
-            id="about"
-            class="section section-dark"
-        >
+        <!-- HERO -->
+        <section id="home" class="hero-section section">
+            <div class="hero-grid"></div>
+            <div class="hero-orb orb-1" data-parallax="0.15"></div>
+            <div class="hero-orb orb-2" data-parallax="-0.1"></div>
 
             <div class="container">
-
-
-                <div class="section-heading reveal">
-
-                    <span class="section-number">
-                        01
-                    </span>
-
-
-                    <div>
-
-                        <p class="section-label">
-                            GET TO KNOW ME
-                        </p>
-
-                        <h2>
-                            About <span>Me</span>
-                        </h2>
-
-                    </div>
-
-                </div>
-
-
-
                 <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <div class="hero-content reveal">
+                            <span class="status-badge"><span class="status-dot"></span>Menerima project baru</span>
 
+                            <p class="hero-small-title">MITRA DIGITAL BISNIS ANDA</p>
+                            <h1>Wujudkan bisnis digital yang <span class="text-gradient">tumbuh</span></h1>
+                            <h2 aria-label="Layanan kami">
+                                <span id="typedRole" data-roles="Pembuatan Website|Desain UI/UX|Solusi Jaringan|Maintenance &amp; Support">Pembuatan Website</span><span class="typed-cursor" aria-hidden="true">|</span>
+                            </h2>
 
-                    <div class="col-lg-5 reveal">
-
-                        <div class="about-image-card">
-
-                            <img
-                                src="assets/images/about.jpg"
-                                alt="Foto Syahdan Pratama"
-                                class="img-fluid"
-                            >
-
-
-                            <div class="about-image-overlay">
-
-                                <span>
-
-                                    <i class="bi bi-code-slash"></i>
-
-                                    CREATIVE MIND
-
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="col-lg-7 reveal">
-
-                        <div class="about-content">
-
-
-                            <p class="about-lead">
-
-                                Saya adalah programmer yang tertarik
-                                pada teknologi, desain digital,
-                                dan pengembangan website.
-
+                            <p class="hero-description">
+                                Kami membantu perusahaan dan UMKM membangun website, antarmuka, dan
+                                infrastruktur jaringan yang modern, aman, dan siap berkembang.
                             </p>
 
-
-                            <p>
-
-                                Saya senang mempelajari hal baru
-                                dan mengubah ide menjadi project
-                                digital yang memiliki tampilan
-                                modern, responsif, dan mudah digunakan.
-
-                            </p>
-
-
-                            <div class="about-info">
-
-
-                                <div class="info-item">
-
-                                    <span>
-                                        Education
-                                    </span>
-
-                                    <strong>
-                                        SMK SIJA
-                                    </strong>
-
-                                </div>
-
-
-                                <div class="info-item">
-
-                                    <span>
-                                        Interest
-                                    </span>
-
-                                    <strong>
-                                        Web Development & UI/UX
-                                    </strong>
-
-                                </div>
-
-
-                                <div class="info-item">
-
-                                    <span>
-                                        Career Goal
-                                    </span>
-
-                                    <strong>
-                                        Digital & Technology
-                                    </strong>
-
-                                </div>
-
-
-                                <div class="info-item">
-
-                                    <span>
-                                        Location
-                                    </span>
-
-                                    <strong>
-                                        Indonesia
-                                    </strong>
-
-                                </div>
-
-
+                            <div class="hero-buttons">
+                                <a href="#kontak" class="btn btn-primary-custom">Konsultasi Gratis <i class="bi bi-arrow-up-right"></i></a>
+                                <a href="#proyek" class="btn btn-outline-custom">Lihat Proyek <i class="bi bi-grid"></i></a>
                             </div>
 
-
+                            <div class="stats">
+                                <div><strong data-count="2" data-suffix="+">0</strong><span>Proyek selesai</span></div>
+                                <div><strong data-count="4">0</strong><span>Layanan utama</span></div>
+                                <div><strong data-count="100" data-suffix="%">0</strong><span>Komitmen kualitas</span></div>
+                            </div>
                         </div>
-
                     </div>
 
-
+                    <div class="col-lg-5">
+                        <div class="hero-image-wrapper reveal" data-reveal="zoom">
+                            <div class="hero-image-glow"></div>
+                            <div class="profile-frame">
+                                <div class="profile-corner corner-top"></div>
+                                <div class="profile-corner corner-bottom"></div>
+                                <img src="assets/images/sija.jpg" alt="Gedung perkantoran modern" class="profile-image" width="380" height="475">
+                                <div class="profile-label"><span>ESTABLISHED</span><strong>2026</strong></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
 
+            <a href="#layanan" class="scroll-indicator" aria-label="Scroll ke layanan">
+                <span>SCROLL</span><i class="bi bi-arrow-down"></i>
+            </a>
         </section>
 
-
-
-        <!-- =========================
-             SKILLS
-        ========================== -->
-
-        <section
-            id="skills"
-            class="section"
-        >
-
+        <!-- LAYANAN -->
+        <section id="layanan" class="section section-dark">
             <div class="container">
-
-
                 <div class="section-heading reveal">
-
-                    <span class="section-number">
-                        02
-                    </span>
-
-
+                    <span class="section-number">01</span>
                     <div>
-
-                        <p class="section-label">
-                            WHAT I CAN DO
-                        </p>
-
-                        <h2>
-                            My <span>Skills</span>
-                        </h2>
-
+                        <p class="section-label">LAYANAN</p>
+                        <h2>Layanan <span>Kami</span></h2>
                     </div>
-
                 </div>
-
-
-
                 <div class="row g-4">
-
-
-                    <!-- HARD SKILLS -->
-
-                    <div class="col-lg-7 reveal">
-
-                        <div class="skill-card h-100">
-
-
-                            <div class="skill-card-header">
-
-
-                                <div class="skill-icon magenta">
-
-                                    <i class="bi bi-code-square"></i>
-
-                                </div>
-
-
-                                <div>
-
-                                    <span>
-                                        01
-                                    </span>
-
-                                    <h3>
-                                        Hard Skills
-                                    </h3>
-
-                                </div>
-
-
-                            </div>
-
-
-
-                            <div class="row g-3">
-
-
-                                <div class="col-sm-6">
-
-                                    <div class="skill-item">
-
-                                        <i class="bi bi-filetype-html"></i>
-
-                                        <span>
-                                            HTML5
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="col-sm-6">
-
-                                    <div class="skill-item">
-
-                                        <i class="bi bi-filetype-css"></i>
-
-                                        <span>
-                                            CSS3
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="col-sm-6">
-
-                                    <div class="skill-item">
-
-                                        <i class="bi bi-filetype-js"></i>
-
-                                        <span>
-                                            JavaScript
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="col-sm-6">
-
-                                    <div class="skill-item">
-
-                                        <i class="bi bi-bootstrap"></i>
-
-                                        <span>
-                                            Bootstrap 5
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="col-sm-6">
-
-                                    <div class="skill-item">
-
-                                        <i class="bi bi-palette"></i>
-
-                                        <span>
-                                            UI / UX
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="col-sm-6">
-
-                                    <div class="skill-item">
-
-                                        <i class="bi bi-vector-pen"></i>
-
-                                        <span>
-                                            Figma
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="col-sm-6">
-
-                                    <div class="skill-item">
-
-                                        <i class="bi bi-brush"></i>
-
-                                        <span>
-                                            Canva
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-
-                        </div>
-
+                    <div class="col-md-6 col-xl-3 reveal">
+                        <article class="service-card spotlight">
+                            <div class="service-icon"><i class="bi bi-code-slash"></i></div>
+                            <h3>Pengembangan Website</h3>
+                            <p>Website company profile, landing page, hingga sistem web custom yang cepat, aman, dan responsif.</p>
+                        </article>
                     </div>
-
-
-
-                    <!-- SOFT SKILLS -->
-
-                    <div class="col-lg-5 reveal">
-
-                        <div class="skill-card soft-skill-card h-100">
-
-
-                            <div class="skill-card-header">
-
-
-                                <div class="skill-icon green">
-
-                                    <i class="bi bi-people"></i>
-
-                                </div>
-
-
-                                <div>
-
-                                    <span>
-                                        02
-                                    </span>
-
-                                    <h3>
-                                        Soft Skills
-                                    </h3>
-
-                                </div>
-
-
-                            </div>
-
-
-
-                            <div class="soft-skills">
-
-
-                                <span>
-
-                                    <i class="bi bi-chat-dots"></i>
-
-                                    Communication
-
-                                </span>
-
-
-                                <span>
-
-                                    <i class="bi bi-people"></i>
-
-                                    Teamwork
-
-                                </span>
-
-
-                                <span>
-
-                                    <i class="bi bi-lightbulb"></i>
-
-                                    Creativity
-
-                                </span>
-
-
-                                <span>
-
-                                    <i class="bi bi-puzzle"></i>
-
-                                    Problem Solving
-
-                                </span>
-
-
-                                <span>
-
-                                    <i class="bi bi-arrow-repeat"></i>
-
-                                    Adaptability
-
-                                </span>
-
-
-                            </div>
-
-
-                        </div>
-
+                    <div class="col-md-6 col-xl-3 reveal">
+                        <article class="service-card spotlight">
+                            <div class="service-icon"><i class="bi bi-palette"></i></div>
+                            <h3>Desain UI/UX</h3>
+                            <p>Desain antarmuka yang rapi dan mudah dipakai, dari riset pengguna sampai prototype siap develop.</p>
+                        </article>
                     </div>
-
-
+                    <div class="col-md-6 col-xl-3 reveal">
+                        <article class="service-card spotlight">
+                            <div class="service-icon"><i class="bi bi-hdd-network"></i></div>
+                            <h3>Jaringan & Infrastruktur</h3>
+                            <p>Perancangan, instalasi, dan pengelolaan jaringan kantor agar operasional tetap stabil.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-xl-3 reveal">
+                        <article class="service-card spotlight">
+                            <div class="service-icon"><i class="bi bi-headset"></i></div>
+                            <h3>Maintenance & Support</h3>
+                            <p>Perawatan rutin, pembaruan, dan bantuan teknis setelah project selesai dikerjakan.</p>
+                        </article>
+                    </div>
                 </div>
-
             </div>
-
         </section>
 
-
-
-        <!-- =========================
-             PROJECTS
-        ========================== -->
-
-        <section
-            id="projects"
-            class="section section-dark"
-        >
-
+        <!-- TENTANG -->
+        <section id="tentang" class="section">
             <div class="container">
-
-
                 <div class="section-heading reveal">
-
-                    <span class="section-number">
-                        03
-                    </span>
-
-
+                    <span class="section-number">02</span>
                     <div>
-
-                        <p class="section-label">
-                            SELECTED WORK
-                        </p>
-
-                        <h2>
-                            Featured <span>Projects</span>
-                        </h2>
-
+                        <p class="section-label">TENTANG KAMI</p>
+                        <h2>Mengapa <span>Kami</span></h2>
                     </div>
+                </div>
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 reveal" data-reveal="left">
+                        <div class="about-content">
+                            <p class="about-lead">Dikerjakan langsung oleh pendiri, dengan fokus pada solusi digital yang rapi, cepat, dan bisa diandalkan.</p>
+                            <p>
+                                PT Sigma Cipta Caraka menggabungkan keahlian web development, desain UI/UX, dan jaringan
+                                untuk membantu bisnis tampil profesional di dunia digital.
+                                Setiap project dikerjakan dengan komunikasi terbuka dan hasil yang terukur.
+                            </p>
+                            <div class="about-info">
+                                <div class="info-item"><span>Visi</span><strong>Menjadi mitra digital tepercaya bagi bisnis lokal</strong></div>
+                                <div class="info-item"><span>Misi</span><strong>Solusi berkualitas dengan harga bersahabat</strong></div>
+                                <div class="info-item"><span>Lokasi</span><strong>Indonesia</strong></div>
+                                <div class="info-item"><span>Jam Kerja</span><strong>Senin – Jumat, 08.00 – 17.00</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 reveal" data-reveal="right">
+                        <div class="row g-4">
+                    <div class="col-sm-6 reveal">
+                        <div class="step"><span>01</span><h3>Konsultasi</h3><p>Kami dengar kebutuhan, target, dan anggaran Anda.</p></div>
+                    </div>
+                    <div class="col-sm-6 reveal">
+                        <div class="step"><span>02</span><h3>Perencanaan</h3><p>Menyusun ruang lingkup, desain, dan jadwal kerja.</p></div>
+                    </div>
+                    <div class="col-sm-6 reveal">
+                        <div class="step"><span>03</span><h3>Pengerjaan</h3><p>Development dan pengujian dengan update berkala.</p></div>
+                    </div>
+                    <div class="col-sm-6 reveal">
+                        <div class="step"><span>04</span><h3>Peluncuran</h3><p>Go-live, serah terima, dan dukungan purna jual.</p></div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- PROYEK -->
+        <section id="proyek" class="section section-dark">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-number">03</span>
+                    <div>
+                        <p class="section-label">PROYEK</p>
+                        <h2>Proyek <span>Kami</span></h2>
+                    </div>
                 </div>
 
-
+                <div class="project-filters reveal" role="group" aria-label="Filter project">
+                    <button type="button" class="filter-btn active" data-filter="all">Semua</button>
+                    <button type="button" class="filter-btn" data-filter="web">Web Development</button>
+                    <button type="button" class="filter-btn" data-filter="uiux">UI/UX</button>
+                </div>
 
                 <div class="row g-4" id="projectGrid">
 
-                    <!-- Placeholder: hapus blok ini saat project pertama sudah ditambahkan -->
-                    <div class="col-12" id="projectEmpty">
-
-                        <div class="project-empty">
-
-                            <i class="bi bi-folder2-open"></i>
-
-                            <h3>Projects Coming Soon</h3>
-
-                            <p>
-                                Project terbaru sedang disiapkan
-                                dan akan segera ditampilkan di sini.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- =====================================
-                         TEMPLATE PROJECT (copy & paste di bawah ini)
-
-                    <div class="col-md-6 col-lg-4 reveal">
-
-                        <a
-                            class="project-card"
-                            href="https://LINK-WEBSITE-KAMU.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-
+                    <!-- PROJECT 1: RUMI -->
+                    <div class="col-md-6 col-lg-4 project-col reveal" data-category="web uiux">
+                        <article class="project-card" data-project="rumi" tabindex="0" role="button"
+                                 aria-label="Lihat detail project RUMI Furnitur">
                             <div class="project-image">
-
-                                <img
-                                    src="assets/images/project-1.jpg"
-                                    alt="Nama project"
-                                >
-
-                                <div class="project-overlay">
-                                    <i class="bi bi-arrow-up-right"></i>
-                                </div>
-
+                                <img src="assets/images/project-1.jpg" alt="Tampilan website RUMI Furnitur" loading="lazy">
+                                <div class="project-overlay"><i class="bi bi-arrow-up-right"></i></div>
                             </div>
-
                             <div class="project-content">
-
-                                <div class="project-meta">
-                                    <span>KATEGORI</span>
-                                    <span>2026</span>
-                                </div>
-
-                                <h3>Nama Project</h3>
-
-                                <p>Deskripsi singkat project.</p>
-
-                                <div class="tech-list">
-                                    <span>HTML</span>
-                                    <span>CSS</span>
-                                    <span>JavaScript</span>
-                                </div>
-
+                                <div class="project-meta"><span>WEB DEVELOPMENT</span><span>2026</span></div>
+                                <h3>RUMI Furnitur</h3>
+                                <p>Website toko furnitur kayu modular dengan katalog, keranjang, dan checkout via WhatsApp.</p>
+                                <div class="tech-list"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
                             </div>
-
-                        </a>
-
+                        </article>
                     </div>
 
-                    ====================================== -->
-
-
+                    <!-- PROJECT 2: Portfolio -->
+                    <div class="col-md-6 col-lg-4 project-col reveal" data-category="web uiux">
+                        <article class="project-card" data-project="portfolio" tabindex="0" role="button"
+                                 aria-label="Lihat detail project Portfolio Website">
+                            <div class="project-image">
+                                <img src="assets/images/project-2.jpg" alt="Tampilan website portfolio" loading="lazy">
+                                <div class="project-overlay"><i class="bi bi-arrow-up-right"></i></div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-meta"><span>UI/UX &amp; WEB</span><span>2026</span></div>
+                                <h3>Portfolio Website</h3>
+                                <p>Portfolio pribadi bertema gelap dengan mode terang, animasi scroll, dan layout responsif.</p>
+                                <div class="tech-list"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span></div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
 
+                <div class="project-empty" id="projectEmpty" hidden>
+                    <i class="bi bi-folder2-open"></i>
+                    <h3>Belum ada project</h3>
+                    <p>Project di kategori ini akan segera ditambahkan.</p>
+                </div>
             </div>
-
         </section>
 
-
-
-        <!-- =========================
-             EXPERIENCE
-        ========================== -->
-
-        <section
-            id="experience"
-            class="section"
-        >
-
+        <!-- PENDIRI -->
+        <section id="pendiri" class="section">
             <div class="container">
-
-
                 <div class="section-heading reveal">
-
-                    <span class="section-number">
-                        04
-                    </span>
-
-
+                    <span class="section-number">04</span>
                     <div>
+                        <p class="section-label">PENDIRI</p>
+                        <h2>Kenalan dengan <span>Pendiri</span></h2>
+                    </div>
+                </div>
 
-                        <p class="section-label">
-                            MY JOURNEY
+                <div class="founder-card spotlight reveal" data-reveal="zoom">
+                    <div class="founder-photo">
+                        <img src="assets/images/profile.jpg" alt="Foto Syahdan Pratama" loading="lazy">
+                    </div>
+
+                    <div class="founder-info">
+                        <span class="founder-role">FOUNDER &amp; WEB DEVELOPER</span>
+                        <h3>Syahdan Pratama</h3>
+                        <p>
+                            Setiap project di PT Sigma Cipta Caraka dikerjakan langsung oleh saya,
+                            mulai dari konsultasi, desain, pengembangan, sampai dukungan setelah peluncuran.
+                            Komunikasi jadi lebih cepat dan hasilnya bisa dipertanggungjawabkan.
                         </p>
 
-                        <h2>
-                            Experience
-                        </h2>
+                        <div class="tech-list">
+                            <span>Web Development</span><span>UI/UX</span><span>Jaringan</span>
+                        </div>
 
+                        <div class="team-socials">
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        </div>
                     </div>
-
                 </div>
-
-
-
-                <div class="timeline">
-
-
-                    <div class="timeline-item reveal">
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-date">
-                            2026
-                        </div>
-
-
-                        <div class="timeline-content">
-
-                            <span class="timeline-type">
-                                SCHOOL PROJECT
-                            </span>
-
-
-                            <h3>
-                                NATURAVITA Branding Project
-                            </h3>
-
-
-                            <h4>
-                                Branding & Packaging Designer
-                            </h4>
-
-
-                            <p>
-
-                                Mengembangkan konsep branding,
-                                identitas visual, dan desain
-                                packaging untuk produk minuman
-                                sehat berbahan lokal.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="timeline-item reveal">
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-date">
-                            2026
-                        </div>
-
-
-                        <div class="timeline-content">
-
-                            <span class="timeline-type">
-                                PERSONAL PROJECT
-                            </span>
-
-
-                            <h3>
-                                Personal Portfolio Website
-                            </h3>
-
-
-                            <h4>
-                                Web Developer & UI Designer
-                            </h4>
-
-
-                            <p>
-
-                                Membuat website portfolio responsive
-                                menggunakan HTML, CSS, JavaScript,
-                                dan Bootstrap 5.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="timeline-item reveal">
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-date">
-                            2025
-                        </div>
-
-
-                        <div class="timeline-content">
-
-                            <span class="timeline-type">
-                                LEARNING
-                            </span>
-
-
-                            <h3>
-                                Web Development Learning
-                            </h3>
-
-
-                            <h4>
-                                Student
-                            </h4>
-
-
-                            <p>
-
-                                Mempelajari dasar HTML, CSS,
-                                JavaScript, responsive web design,
-                                dan UI/UX.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
             </div>
-
         </section>
 
-
-
-        <!-- =========================
-             EDUCATION
-        ========================== -->
-
-        <section
-            id="education"
-            class="section section-dark"
-        >
-
-            <div class="container">
-
-
-                <div class="section-heading reveal">
-
-                    <span class="section-number">
-                        05
-                    </span>
-
-
+        <!-- CTA -->
+        <section class="cta-band">
+            <div class="container reveal" data-reveal="zoom">
+                <div class="cta-box">
                     <div>
-
-                        <p class="section-label">
-                            ACADEMIC BACKGROUND
-                        </p>
-
-                        <h2>
-                            Education
-                        </h2>
-
+                        <h2>Siap memulai project Anda?</h2>
+                        <p>Ceritakan kebutuhan Anda, kami beri estimasi dan solusi tanpa biaya.</p>
                     </div>
-
+                    <a href="#kontak" class="btn btn-primary-custom">Hubungi Kami <i class="bi bi-arrow-right"></i></a>
                 </div>
-
-
-
-                <div class="row g-4">
-
-
-                    <div class="col-md-6 reveal">
-
-                        <div class="education-card">
-
-
-                            <div class="education-icon">
-
-                                <i class="bi bi-mortarboard"></i>
-
-                            </div>
-
-
-                            <div>
-
-                                <span class="education-year">
-                                    2027
-                                </span>
-
-
-                                <h3>
-                                    SMK INDUSTRI KREATIF
-                                </h3>
-
-
-                                <p>
-                                    SIJA
-                                </p>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="col-md-6 reveal">
-
-                        <div class="education-card">
-
-
-                            <div class="education-icon cyan">
-
-                                <i class="bi bi-laptop"></i>
-
-                            </div>
-
-
-                            <div>
-
-                                <span class="education-year">
-                                    CURRENT
-                                </span>
-
-
-                                <h3>
-                                    Self Learning
-                                </h3>
-
-
-                                <p>
-                                    Web Development • UI/UX • Digital Design
-                                </p>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
             </div>
-
         </section>
 
-
-
-        <!-- =========================
-             CERTIFICATES
-        ========================== -->
-
-        <section
-            id="certificates"
-            class="section"
-        >
-
+        <!-- KONTAK -->
+        <section id="kontak" class="section section-dark contact-section">
             <div class="container">
-
-
                 <div class="section-heading reveal">
-
-                    <span class="section-number">
-                        06
-                    </span>
-
-
+                    <span class="section-number">05</span>
                     <div>
-
-                        <p class="section-label">
-                            ACHIEVEMENTS
-                        </p>
-
-
-                        <h2>
-                            Certificates
-                        </h2>
-
+                        <p class="section-label">KONTAK</p>
+                        <h2>Hubungi <span>Kami</span></h2>
                     </div>
-
                 </div>
-
-
-
-                <div class="row g-4">
-
-
-                    <!-- CERTIFICATE 1 -->
-
-                    <div class="col-md-6 col-lg-4 reveal">
-
-                        <div class="certificate-card">
-
-
-                            <div class="certificate-icon">
-
-                                <i class="bi bi-award"></i>
-
-                            </div>
-
-
-                            <span>
-                                [TAHUN]
-                            </span>
-
-
-                            <h3>
-                                [NAMA SERTIFIKAT]
-                            </h3>
-
-
-                            <p>
-                                [INSTITUSI]
-                            </p>
-
-
-                            <a
-                                href="#"
-                                class="certificate-link"
-                            >
-
-                                View Certificate
-
-                                <i class="bi bi-arrow-up-right"></i>
-
-                            </a>
-
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- CERTIFICATE 2 -->
-
-                    <div class="col-md-6 col-lg-4 reveal">
-
-                        <div class="certificate-card">
-
-
-                            <div class="certificate-icon green-icon">
-
-                                <i class="bi bi-patch-check"></i>
-
-                            </div>
-
-
-                            <span>
-                                [TAHUN]
-                            </span>
-
-
-                            <h3>
-                                [NAMA SERTIFIKAT]
-                            </h3>
-
-
-                            <p>
-                                [INSTITUSI]
-                            </p>
-
-
-                            <a
-                                href="#"
-                                class="certificate-link"
-                            >
-
-                                View Certificate
-
-                                <i class="bi bi-arrow-up-right"></i>
-
-                            </a>
-
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- CERTIFICATE 3 -->
-
-                    <div class="col-md-6 col-lg-4 reveal">
-
-                        <div class="certificate-card">
-
-
-                            <div class="certificate-icon cyan-icon">
-
-                                <i class="bi bi-trophy"></i>
-
-                            </div>
-
-
-                            <span>
-                                [TAHUN]
-                            </span>
-
-
-                            <h3>
-                                [PRESTASI / SERTIFIKAT]
-                            </h3>
-
-
-                            <p>
-                                [INSTITUSI]
-                            </p>
-
-
-                            <a
-                                href="#"
-                                class="certificate-link"
-                            >
-
-                                View Certificate
-
-                                <i class="bi bi-arrow-up-right"></i>
-
-                            </a>
-
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             CONTACT
-        ========================== -->
-
-        <section
-            id="contact"
-            class="section section-dark contact-section"
-        >
-
-            <div class="container">
-
-
-                <div class="section-heading reveal">
-
-                    <span class="section-number">
-                        07
-                    </span>
-
-
-                    <div>
-
-                        <p class="section-label">
-                            LET'S CONNECT
-                        </p>
-
-
-                        <h2>
-                            Get In <span>Touch</span>
-                        </h2>
-
-                    </div>
-
-                </div>
-
-
-
                 <div class="row g-5">
-
-
-                    <div class="col-lg-5 reveal">
-
-                        <div class="contact-info">
-
-
-                            <p class="contact-lead">
-
-                                Punya project, opportunity,
-                                atau ingin berdiskusi?
-                                Silakan hubungi saya.
-
-                            </p>
-
-
-
-                            <div class="contact-item">
-
-                                <div>
-                                    <i class="bi bi-envelope"></i>
-                                </div>
-
-
-                                <span>
-
-                                    Email
-
-                                    <strong>
-                                        [EMAIL]
-                                    </strong>
-
-                                </span>
-
-                            </div>
-
-
-
-                            <div class="contact-item">
-
-                                <div>
-                                    <i class="bi bi-github"></i>
-                                </div>
-
-
-                                <span>
-
-                                    GitHub
-
-                                    <strong>
-                                        [GITHUB]
-                                    </strong>
-
-                                </span>
-
-                            </div>
-
-
-
-                            <div class="contact-item">
-
-                                <div>
-                                    <i class="bi bi-linkedin"></i>
-                                </div>
-
-
-                                <span>
-
-                                    LinkedIn
-
-                                    <strong>
-                                        [LINKEDIN]
-                                    </strong>
-
-                                </span>
-
-                            </div>
-
-
-
-                            <div class="contact-item">
-
-                                <div>
-                                    <i class="bi bi-instagram"></i>
-                                </div>
-
-
-                                <span>
-
-                                    Instagram
-
-                                    <strong>
-                                        [INSTAGRAM]
-                                    </strong>
-
-                                </span>
-
-                            </div>
-
-
-                        </div>
-
+                    <div class="col-lg-5 reveal" data-reveal="left">
+                        <p class="contact-lead">Punya project atau ingin berdiskusi? Kirim pesan, kami akan membalas secepatnya.</p>
+                        <!-- TODO: ganti dengan data asli perusahaan -->
+                        <div class="contact-item"><div><i class="bi bi-envelope"></i></div><span>Email<strong>email@contoh.com</strong></span></div>
+                        <div class="contact-item"><div><i class="bi bi-telephone"></i></div><span>Telepon / WhatsApp<strong>+62 800 0000 0000</strong></span></div>
+                        <div class="contact-item"><div><i class="bi bi-geo-alt"></i></div><span>Alamat<strong>Indonesia</strong></span></div>
                     </div>
-
-
-
-                    <div class="col-lg-7 reveal">
-
-                        <form
-                            id="contactForm"
-                            class="contact-form"
-                            novalidate
-                        >
-
-
-                            <div class="row g-4">
-
-
+                    <div class="col-lg-7 reveal" data-reveal="right">
+                        <form id="contactForm" class="contact-form needs-validation" novalidate>
+                            <div class="row g-3">
                                 <div class="col-md-6">
-
-                                    <label for="name">
-                                        Name
-                                    </label>
-
-
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        class="form-control"
-                                        placeholder="Your name"
-                                        required
-                                    >
-
-
-                                    <div class="invalid-feedback">
-                                        Please enter your name.
-                                    </div>
-
+                                    <label for="name">Nama</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Nama kamu" autocomplete="name" required>
+                                    <div class="invalid-feedback">Nama wajib diisi.</div>
                                 </div>
-
-
-
                                 <div class="col-md-6">
-
-                                    <label for="email">
-                                        Email
-                                    </label>
-
-
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        class="form-control"
-                                        placeholder="your@email.com"
-                                        required
-                                    >
-
-
-                                    <div class="invalid-feedback">
-                                        Please enter a valid email.
-                                    </div>
-
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" class="form-control" placeholder="email@kamu.com" autocomplete="email" required>
+                                    <div class="invalid-feedback">Masukkan email yang valid.</div>
                                 </div>
-
-
-
                                 <div class="col-12">
-
-                                    <label for="message">
-                                        Message
-                                    </label>
-
-
-                                    <textarea
-                                        id="message"
-                                        class="form-control"
-                                        rows="6"
-                                        placeholder="Tell me about your project..."
-                                        required
-                                    ></textarea>
-
-
-                                    <div class="invalid-feedback">
-                                        Please enter your message.
-                                    </div>
-
+                                    <label for="message">Pesan</label>
+                                    <textarea id="message" rows="5" class="form-control" placeholder="Tulis pesan..." minlength="10" required></textarea>
+                                    <div class="invalid-feedback">Pesan minimal 10 karakter.</div>
                                 </div>
-
-
-
                                 <div class="col-12">
-
-
-                                    <button
-                                        type="submit"
-                                        class="btn btn-primary-custom"
-                                    >
-
-                                        Send Message
-
-                                        <i class="bi bi-send"></i>
-
+                                    <button type="submit" class="btn btn-primary-custom">
+                                        Kirim Pesan <i class="bi bi-send"></i>
                                     </button>
-
-
-                                    <div
-                                        id="formMessage"
-                                        class="form-message"
-                                    ></div>
-
-
                                 </div>
-
-
                             </div>
-
+                            <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
                         </form>
-
                     </div>
-
-
                 </div>
-
             </div>
-
         </section>
-
 
     </main>
 
+    <!-- PROJECT MODAL -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalTitle">Detail Project</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" class="modal-project-image" src="" alt="">
+                    <span class="modal-category" id="modalCategory"></span>
+                    <h3 id="modalName"></h3>
+                    <p id="modalDesc"></p>
 
+                    <div class="modal-details">
+                        <div><span>PERAN</span><p id="modalRole"></p></div>
+                        <div><span>TEKNOLOGI</span><p id="modalTech"></p></div>
+                    </div>
 
-    <!-- =========================
-         BACK TO TOP
-    ========================== -->
+                    <ul class="modal-features" id="modalFeatures"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal">Tutup</button>
+                    <a id="modalLink" href="#" class="btn btn-primary-custom" target="_blank" rel="noopener noreferrer">
+                        Kunjungi Website <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <button
-        id="backToTop"
-        aria-label="Back to top"
-        title="Back to top"
-    >
-
+    <button id="backToTop" type="button" aria-label="Kembali ke atas" title="Kembali ke atas">
         <i class="bi bi-arrow-up"></i>
-
     </button>
 
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
     <footer>
-
         <div class="container">
-
-
-            <div class="footer-content">
-
-
-                <div>
-
-
-                    <a
-                        href="#home"
-                        class="footer-brand"
-                    >
-                        Syahdan Pratama
-                    </a>
-
-
-                    <p>
-
-                        Building digital experiences
-                        with creativity and technology.
-
-                    </p>
-
-
+            <div class="row g-5 footer-top">
+                <div class="col-lg-5">
+                    <a href="#home" class="footer-brand">PT Sigma Cipta Caraka</a>
+                    <p>Mitra digital untuk website, desain UI/UX, dan solusi jaringan bisnis Anda.</p>
+                    <div class="footer-socials">
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
                 </div>
-
-
-
-                <div class="footer-socials">
-
-
-                    <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="GitHub"
-                    >
-
-                        <i class="bi bi-github"></i>
-
-                    </a>
-
-
-                    <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn"
-                    >
-
-                        <i class="bi bi-linkedin"></i>
-
-                    </a>
-
-
-                    <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                    >
-
-                        <i class="bi bi-instagram"></i>
-
-                    </a>
-
-
+                <div class="col-6 col-lg-3">
+                    <h4 class="footer-title">Menu</h4>
+                    <ul class="footer-links">
+                        <li><a href="#layanan">Layanan</a></li><li><a href="#tentang">Tentang</a></li>
+                        <li><a href="#proyek">Proyek</a></li><li><a href="#pendiri">Pendiri</a></li>
+                    </ul>
                 </div>
-
-
+                <div class="col-6 col-lg-4">
+                    <h4 class="footer-title">Kontak</h4>
+                    <ul class="footer-links">
+                        <li>email@contoh.com</li><li>+62 800 0000 0000</li><li>Indonesia</li>
+                    </ul>
+                </div>
             </div>
-
-
 
             <div class="footer-bottom">
-
-
-                <span>
-
-                    © 2026 Syahdan Pratama.
-                    All rights reserved.
-
-                </span>
-
-
-                <span>
-
-                    Designed & Built with
-
-                    <i class="bi bi-heart-fill"></i>
-
-                </span>
-
-
+                <span>© 2026 PT Sigma Cipta Caraka. All rights reserved.</span>
+                <span>Designed &amp; Built with <i class="bi bi-heart-fill"></i></span>
             </div>
-
-
         </div>
-
     </footer>
 
-
-
-    <!-- =========================
-         BOOTSTRAP JS
-    ========================== -->
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    ></script>
-
-
-
-    <script src="jss/javascript.js"></script>
-
-    <script src="jss/animator.js"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="javascript.js"></script>
+    <script src="animator.js"></script>
 </body>
-
 </html>
