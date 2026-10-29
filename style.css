@@ -2179,3 +2179,112 @@ html.theme-anim *::after {
     .cta-box { padding: 32px 24px; }
     .hero-section { padding-top: 100px; }
 }
+
+
+/* ---- Pendiri (profil tunggal) ---- */
+
+.founder-card {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    align-items: center;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 36px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: var(--bg-card);
+}
+
+.founder-photo {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    aspect-ratio: 4 / 5;
+}
+
+.founder-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.founder-role { color: var(--magenta); font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; }
+.founder-info h3 { margin: 8px 0 14px; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; }
+.founder-info p { color: var(--text-secondary); line-height: 1.8; }
+.founder-info .tech-list { margin: 18px 0; }
+.founder-info .team-socials { justify-content: flex-start; font-size: 1.2rem; }
+
+@media (max-width: 767.98px) {
+    .founder-card { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+    .founder-photo { max-width: 240px; }
+}
+
+
+
+/* =========================================
+   GAMBAR: posisi, placeholder, dan Android
+========================================= */
+
+/* gedung di tengah foto -> potong portrait dari tengah */
+.hero-image-wrapper .profile-image { object-position: 50% 30%; }
+
+/* wajah ada di sisi kiri foto pendiri */
+.founder-photo img { object-position: 5% 25%; }
+
+/* kartu proyek: gambar screenshot dari atas, rasio konsisten */
+.project-image img { aspect-ratio: 16 / 10; }
+
+/* gambar belum ada -> kotak placeholder, bukan gambar rusak */
+.img-missing { position: relative; }
+.img-missing > img { display: none; }
+
+.img-missing::before {
+    content: "Gambar belum tersedia";
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    padding: 12px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+    background:
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0 12px, transparent 12px 24px),
+        linear-gradient(135deg, #1a1a22, #2a1020);
+}
+
+body.light-mode .img-missing::before {
+    background:
+        repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.04) 0 12px, transparent 12px 24px),
+        linear-gradient(135deg, #ececf3, #f7e3ec);
+}
+
+.modal-image-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1a1a22, #2a1020);
+}
+
+.modal-image-wrap .modal-project-image {
+    width: 100%; height: 100%;
+    max-height: none;
+    margin: 0;
+    border-radius: 0;
+}
+
+/* pesan form */
+.form-message.is-error { color: #ff6b6b; }
+.form-message { font-size: 0.88rem; }
+.form-note { margin: 8px 0 0; color: var(--text-muted); font-size: 0.78rem; }
+body.light-mode .form-message.is-error { color: #c0392b; }
+
+/* tombol cukup besar untuk jari */
+.btn, .filter-btn, .theme-toggle { min-height: 44px; }
+.theme-toggle { width: 44px; height: 44px; }
+.footer-socials a, .team-socials a { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; min-height: 40px; }
+
+/* HP: ringankan efek berat */
+@media (max-width: 767.98px) {
+    .hero-orb { display: none; }
+    .hero-image-glow { filter: blur(45px); }
+    .stats { gap: 14px 28px; }
+}

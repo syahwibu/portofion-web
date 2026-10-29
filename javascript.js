@@ -10,7 +10,7 @@
 ========================================= */
 
 const CONFIG = {
-    email: "email@contoh.com",   // tujuan pesan dari form kontak
+    email: "",                   // ISI: email tujuan form kontak, contoh "nama@perusahaan.com"
     wa: "6280000000000"          // (opsional) nomor WhatsApp
 };
 
@@ -129,7 +129,7 @@ navLinks.forEach((link) => {
         const navbarCollapse = document.getElementById("navbarNav");
 
         if (navbarCollapse && navbarCollapse.classList.contains("show")) {
-            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            const bsCollapse = typeof bootstrap !== "undefined" && bootstrap.Collapse.getInstance(navbarCollapse);
             if (bsCollapse) bsCollapse.hide();
         }
 
@@ -150,14 +150,38 @@ if (backToTop) {
 
 
 /* =========================================
-   IMAGE FALLBACK (jika gambar gagal dimuat)
+   IMAGE FALLBACK (jika gambar belum ada / gagal dimuat)
+   Wadah gambar diberi class "img-missing" -> CSS menampilkan
+   kotak "Gambar belum tersedia" (tidak ada gambar rusak).
 ========================================= */
+
+function markMissing(img) {
+
+    if (!img.getAttribute("src")) return;   /* abaikan src kosong */
+
+    const box = img.parentElement;
+    if (box) box.classList.add("img-missing");
+
+}
 
 document.querySelectorAll("img").forEach((img) => {
 
-    img.addEventListener("error", () => {
-        img.style.visibility = "hidden";
-    }, { once: true });
+    img.addEventListener("error", () => markMissing(img));
+
+    /* gambar yang sudah gagal sebelum script ini berjalan */
+    if (img.complete && img.naturalWidth === 0) markMissing(img);
+
+});
+
+
+/* =========================================
+   LINK YANG BELUM DIISI (href="#")
+   Mencegah halaman lompat ke atas / membuka tab kosong.
+========================================= */
+
+document.querySelectorAll('.footer-socials a[href="#"], .team-socials a[href="#"]').forEach((link) => {
+
+    link.addEventListener("click", (event) => event.preventDefault());
 
 });
 
@@ -214,7 +238,7 @@ document.querySelectorAll("img").forEach((img) => {
     const modalElement = document.getElementById("projectModal");
     const cards = document.querySelectorAll(".project-card[data-project]");
 
-    if (!modalElement || !cards.length) return;
+    if (!modalElement || !cards.length || typeof bootstrap === "undefined") return;
 
     const modal = new bootstrap.Modal(modalElement);
 
@@ -237,9 +261,10 @@ document.querySelectorAll("img").forEach((img) => {
         if (!project) return;
 
         el.title.textContent = project.name;
-        el.image.src = project.image;
+        const wrap = document.getElementById("modalImageWrap");
+        if (wrap) wrap.classList.remove("img-missing");
         el.image.alt = `Tampilan ${project.name}`;
-        el.image.style.visibility = "visible";
+        el.image.src = project.image;
         el.category.textContent = project.category;
         el.name.textContent = project.name;
         el.desc.textContent = project.description;
@@ -290,8 +315,17 @@ document.querySelectorAll("img").forEach((img) => {
 
 
 /* =========================================
-   CONTACT FORM (kirim lewat email)
+   CONTACT FORM
+   Tanpa backend: form membuka aplikasi email (mailto).
+   Pesan hanya terkirim jika pengunjung menekan "kirim" di email.
 ========================================= */
+
+function setFormMessage(text, type) {
+
+    formMessage.textContent = text;
+    formMessage.classList.toggle("is-error", type === "error");
+
+}
 
 if (contactForm) {
 
@@ -301,7 +335,17 @@ if (contactForm) {
 
         if (!contactForm.checkValidity()) {
             contactForm.classList.add("was-validated");
-            formMessage.textContent = "";
+            setFormMessage("Form belum lengkap. Periksa kolom yang ditandai merah.", "error");
+
+            const firstInvalid = contactForm.querySelector(":invalid");
+            if (firstInvalid) firstInvalid.focus();
+            return;
+        }
+
+        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONFIG.email);
+
+        if (!emailOk) {
+            setFormMessage("Pengiriman belum aktif: email tujuan belum diisi oleh pemilik website.", "error");
             return;
         }
 
@@ -309,13 +353,12 @@ if (contactForm) {
         const email = document.getElementById("email").value.trim();
         const message = document.getElementById("message").value.trim();
 
-        const subject = encodeURIComponent(`Pesan dari portfolio - ${name}`);
+        const subject = encodeURIComponent(`Pesan dari website PT Sigma Cipta Caraka - ${name}`);
         const body = encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\n${message}`);
 
-        window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
+        setFormMessage("Membuka aplikasi email Anda. Tekan tombol kirim di sana untuk mengirim pesan.", "info");
 
-        formMessage.textContent =
-            `Terima kasih, ${name}! Aplikasi email kamu akan terbuka untuk mengirim pesan.`;
+        window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
 
         contactForm.reset();
         contactForm.classList.remove("was-validated");

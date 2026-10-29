@@ -48,7 +48,11 @@
 
     }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
 
-    $$(".reveal").forEach((el) => revealObserver.observe(el));
+    if ("IntersectionObserver" in window) {
+        $$(".reveal").forEach((el) => revealObserver.observe(el));
+    } else {
+        $$(".reveal").forEach((el) => el.classList.add("active"));
+    }
 
 
     /* ---------- Efek mengetik (hero) ---------- */
@@ -136,7 +140,7 @@
 
         if (progress) progress.style.setProperty("--p", max > 0 ? (y / max).toFixed(4) : 0);
 
-        if (!reduce && y < window.innerHeight * 1.5) {
+        if (!reduce && window.innerWidth >= 768 && y < window.innerHeight * 1.5) {
             parallax.forEach((el) => el.style.setProperty("--py", `${(y * Number(el.dataset.parallax)).toFixed(1)}px`));
         }
 
@@ -155,7 +159,7 @@
 
     /* ---------- Spotlight kartu mengikuti kursor ---------- */
 
-    if (!reduce) {
+    if (!reduce && window.matchMedia("(pointer: fine)").matches) {
 
         $$(".spotlight").forEach((card) => {
 
